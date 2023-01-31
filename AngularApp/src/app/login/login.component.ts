@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = fb.group({
       'email': ['', [Validators.required, Validators.email]],
-      'password': ['', [Validators.required, Validators.minLength(6)]],  
+      'password': ['', [Validators.required]],  
     });
   }
   ngOnInit() {

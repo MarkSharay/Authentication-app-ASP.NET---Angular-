@@ -1,8 +1,8 @@
 <div class="container">
     <div class="signin-content">
         <div class="signin-image">
-            <figure><img src="signin-image.jpg" alt="sing up image"></figure>
-            <a href="#" class="signup-image-link">Create an account</a>
+            <figure><img src="assets/images/signinimage.jpg" alt="sing up image"></figure>
+            <a href="#" class="signup-image-link" [routerLink]="['/register']">Create an account</a>
         </div>
 
         <div class="signin-form">
@@ -13,28 +13,23 @@
                     <input type="email" name="email" id="your_name" placeholder="Email" formControlName="email" />
                 </div>
                 <div *ngIf="email?.touched && email?.errors?.required" class="alert alert-danger">
-                    email is required
+                    Это поле обязательное
                 </div>
-                <div *ngIf="email?.touched && email?.errors?.email" class="alert alert-danger">
-                    entry the value like email pattern
+                <div *ngIf="email?.touched && email?.errors?.email && email?.value.length>10" class="alert alert-danger">
+                    Введите адрес электронной почты
                 </div>
                 <div class="form-group">
                     <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                     <input type="password" name="your_pass" id="your_pass" placeholder="Password"
                         formControlName="password" />
                 </div>
+                <div *ngIf="password?.touched && password?.errors?.required" class="alert alert-danger">
+                    Это поле обязательное
+                </div>
                 <div class="form-group form-button">
                     <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                 </div>
             </form>
-            <div class="social-login">
-                <span class="social-label">Or login with</span>
-                <ul class="socials">
-                    <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                    <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                    <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
